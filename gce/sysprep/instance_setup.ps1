@@ -527,6 +527,10 @@ else {
   catch {
     _PrintError
   }
+  # Enable EMS
+  bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
+  bcdedit /ems on
+
   Write-Log "Instance setup finished. $global:hostname is ready to use." -important
 
   if (Test-Path $script:setupcomplete_loc) {
